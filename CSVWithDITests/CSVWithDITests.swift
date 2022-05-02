@@ -54,16 +54,21 @@ class CSVWithDITests: XCTestCase {
     }
     
     func testCSVUserData() {
-        let obj = csvDataUtil.getAllValues(stringData: "")
-        //let objVM = UserDataViewModel(data: obj![0])
-        sut.getDataFromCSV()
-        let outputObj = csvDataUtil.
-        XCTAssertEqual(sut.outputData, output.mockVMArray![0].issueCount)
+//        let obj = csvDataUtil.getAllValues(stringData: "")
+//        //let objVM = UserDataViewModel(data: obj![0])
+//        sut.getDataFromCSV()
+//        let outputObj = csvDataUtil.
+//        XCTAssertEqual(sut.outputData, output.mockVMArray![0].issueCount)
         
     }
 }
 
 class MockCSVHomeViweModel: GetCSVHomeViewModel {
+    
+    func getAllValuesForCSV(stringData: String, completion: @escaping (Result<[UserModel], Error>) -> Void) {
+        
+    }
+    
     
     func getAllValues(stringData: String) -> [UserModel]? {
         let obj = UserModel(dob: "21st Jan", firstName: "John", lastName: "depp", issueCount: 2)

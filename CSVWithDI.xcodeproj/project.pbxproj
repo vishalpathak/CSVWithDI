@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C8CE5F0282024D700018966 /* issues.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4C8CE5EF282024D700018966 /* issues.csv */; };
+		4C8CE5F228205BBD00018966 /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8CE5F128205BBD00018966 /* CommonUtils.swift */; };
 		4C956ABE281C262D00A7AF20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956ABD281C262D00A7AF20 /* AppDelegate.swift */; };
 		4C956AC0281C262D00A7AF20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956ABF281C262D00A7AF20 /* SceneDelegate.swift */; };
 		4C956AC2281C262D00A7AF20 /* CSVHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956AC1281C262D00A7AF20 /* CSVHomeVC.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		4C8CE5EF282024D700018966 /* issues.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = issues.csv; sourceTree = "<group>"; };
+		4C8CE5F128205BBD00018966 /* CommonUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
 		4C956ABA281C262D00A7AF20 /* CSVWithDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSVWithDI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C956ABD281C262D00A7AF20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C956ABF281C262D00A7AF20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				4C956AC8281C262F00A7AF20 /* LaunchScreen.storyboard */,
 				4C956ACB281C262F00A7AF20 /* Info.plist */,
 				4C8CE5EF282024D700018966 /* issues.csv */,
+				4C8CE5F128205BBD00018966 /* CommonUtils.swift */,
 			);
 			path = CSVWithDI;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				4C956ABE281C262D00A7AF20 /* AppDelegate.swift in Sources */,
 				4C956AC0281C262D00A7AF20 /* SceneDelegate.swift in Sources */,
 				4C956AF4281C286200A7AF20 /* CSVReadUtil.swift in Sources */,
+				4C8CE5F228205BBD00018966 /* CommonUtils.swift in Sources */,
 				4C956AF2281C284600A7AF20 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

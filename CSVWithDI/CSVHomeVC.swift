@@ -10,7 +10,18 @@ import UIKit
 class CSVHomeVC: UIViewController {
 
     private let homeViewModel: CSVHomeViewModel
-    private var userDataArray: [UserDataViewModel]?
+    private var userDataArray = [UserDataViewModel]()
+    private let userCellIdentifier = "userCellIdentifier"
+    private lazy var tableInfoList: UITableView = {
+        let tb = UITableView()
+        tb.delegate = self
+        tb.dataSource = self
+        tb.translatesAutoresizingMaskIntoConstraints = false
+        tb.backgroundColor = .systemBackground
+        tb.register(UserTableViewCell.self, forCellReuseIdentifier: userCellIdentifier)
+        return tb
+    }()
+
     
     init(homeViewModel: CSVHomeViewModel) {
         self.homeViewModel = homeViewModel
@@ -32,23 +43,38 @@ class CSVHomeVC: UIViewController {
         let refresh = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.refresh, target: self, action: #selector(getDataFromViewModel))
         self.navigationItem.rightBarButtonItem  = refresh
         self.navigationItem.title = "Home CSV"
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
+        view.addSubview(tableInfoList)
+        let views = ["table":self.tableInfoList]
+        var constraints =  NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[table]-0-|", options: NSLayoutConstraint.FormatOptions.alignAllTop, metrics: nil, views: views)
+        self.view.addConstraints(constraints)
+        let stringConstraint = "V:|-0-[table]-0-|"
+        constraints = NSLayoutConstraint.constraints(withVisualFormat: stringConstraint, options: NSLayoutConstraint.FormatOptions.alignAllCenterX, metrics: nil, views: views)
+        self.view.addConstraints(constraints)
     }
     
     @objc func getDataFromViewModel() {
         homeViewModel.getDataFromCSV()
     }
-
 }
 
 extension CSVHomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userDataArray?.count ?? 0
+        return userDataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UserTableViewCell()
+        guard let cell = tableInfoList.dequeueReusableCell(withIdentifier: userCellIdentifier) as? UserTableViewCell  else {
+            return UserTableViewCell()
+        }
+        let obj = userDataArray[indexPath.row]
+        cell.userInfoViewModel = obj
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
 }
@@ -56,7 +82,11 @@ extension CSVHomeVC: UITableViewDelegate, UITableViewDataSource {
 extension CSVHomeVC: OutputDataForCSV {
     
     func receivedOutputData(userDataViewModel: [UserDataViewModel]?, error: Error?) {
-        self.userDataArray = userDataViewModel
+        guard let userVM = userDataViewModel else { return }
+        self.userDataArray = userVM
+        DispatchQueue.main.async {
+            self.tableInfoList.reloadData()
+        }
     }
 
 }

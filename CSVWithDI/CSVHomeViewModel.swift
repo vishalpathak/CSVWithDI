@@ -65,26 +65,41 @@ class CSVHomeViewModel {
     
     private let csvHomeViewModelUtil: GetCSVHomeViewModel
     weak var outputData: OutputDataForCSV?
+    private let baseUrlPath: URL? = {
+        if let path = Bundle.main.url(forResource: "issues", withExtension: FileExtesions.csv.rawValue) {
+            return path
+        } else {
+            return nil
+        }
+    }()
     
     init(csvHomeViewModelUtil: GetCSVHomeViewModel) {
         self.csvHomeViewModelUtil = csvHomeViewModelUtil
     }
     
     func getDataFromCSV() {
-        csvHomeViewModelUtil.getAllValuesForCSV(stringData: String) { result in
-            switch result {
+        
+        guard let stringData = emptyString.getStringDataFromUrl(stringURL: baseUrlPath) else { return }
+        
+        csvHomeViewModelUtil.getAllValuesForCSV(stringData: stringData) { [weak self] res in
+            switch res {
             case .success(let userModel):
-                
-                outputData?.receivedOutputData(userDataViewModel: <#T##[UserDataViewModel]?#>, error: <#T##Error?#>)
+                let userVM = mapUserDataToViewModel(userModel: userModel)
+                self?.outputData?.receivedOutputData(userDataViewModel: userVM, error: nil)
             case .failure(let error):
-                outputData?.receivedOutputData(userDataViewModel: nil, error: error)
+                self?.outputData?.receivedOutputData(userDataViewModel: nil, error: error)
             }
         }
-        outputData?.receivedOutputData(userDataViewModel: ar, error: nil)
-    }
-    
-    func mapUserDataToViewModel() {
         
+        func mapUserDataToViewModel(userModel: [UserModel]?) -> [UserDataViewModel]? {
+            if let userModel = userModel {
+                let modelArray = userModel.map { (obj: UserModel) -> UserDataViewModel in
+                    return UserDataViewModel(data: obj)
+                }
+                return modelArray
+            } else {
+                return nil
+            }
+        }
     }
-    
 }
