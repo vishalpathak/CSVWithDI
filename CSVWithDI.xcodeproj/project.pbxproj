@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		4C956ABE281C262D00A7AF20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956ABD281C262D00A7AF20 /* AppDelegate.swift */; };
 		4C956AC0281C262D00A7AF20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956ABF281C262D00A7AF20 /* SceneDelegate.swift */; };
-		4C956AC2281C262D00A7AF20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956AC1281C262D00A7AF20 /* ViewController.swift */; };
-		4C956AC5281C262D00A7AF20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C956AC3281C262D00A7AF20 /* Main.storyboard */; };
+		4C956AC2281C262D00A7AF20 /* CSVHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956AC1281C262D00A7AF20 /* CSVHomeVC.swift */; };
 		4C956AC7281C262F00A7AF20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C956AC6281C262F00A7AF20 /* Assets.xcassets */; };
 		4C956ACA281C262F00A7AF20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C956AC8281C262F00A7AF20 /* LaunchScreen.storyboard */; };
 		4C956AD5281C262F00A7AF20 /* CSVWithDITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956AD4281C262F00A7AF20 /* CSVWithDITests.swift */; };
 		4C956ADF281C262F00A7AF20 /* CSVWithDIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956ADE281C262F00A7AF20 /* CSVWithDIUITests.swift */; };
 		4C956AE1281C262F00A7AF20 /* CSVWithDIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956AE0281C262F00A7AF20 /* CSVWithDIUITestsLaunchTests.swift */; };
+		4C956AEE281C267C00A7AF20 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956AED281C267C00A7AF20 /* UserTableViewCell.swift */; };
+		4C956AF0281C269400A7AF20 /* CSVHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956AEF281C269400A7AF20 /* CSVHomeViewModel.swift */; };
+		4C956AF2281C284600A7AF20 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956AF1281C284600A7AF20 /* Constants.swift */; };
+		4C956AF4281C286200A7AF20 /* CSVReadUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956AF3281C286200A7AF20 /* CSVReadUtil.swift */; };
+		4C956AF6281C287A00A7AF20 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956AF5281C287A00A7AF20 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +43,7 @@
 		4C956ABA281C262D00A7AF20 /* CSVWithDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSVWithDI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C956ABD281C262D00A7AF20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C956ABF281C262D00A7AF20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4C956AC1281C262D00A7AF20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4C956AC4281C262D00A7AF20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4C956AC1281C262D00A7AF20 /* CSVHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVHomeVC.swift; sourceTree = "<group>"; };
 		4C956AC6281C262F00A7AF20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C956AC9281C262F00A7AF20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C956ACB281C262F00A7AF20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +52,11 @@
 		4C956ADA281C262F00A7AF20 /* CSVWithDIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CSVWithDIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C956ADE281C262F00A7AF20 /* CSVWithDIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVWithDIUITests.swift; sourceTree = "<group>"; };
 		4C956AE0281C262F00A7AF20 /* CSVWithDIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVWithDIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4C956AED281C267C00A7AF20 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		4C956AEF281C269400A7AF20 /* CSVHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVHomeViewModel.swift; sourceTree = "<group>"; };
+		4C956AF1281C284600A7AF20 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4C956AF3281C286200A7AF20 /* CSVReadUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVReadUtil.swift; sourceTree = "<group>"; };
+		4C956AF5281C287A00A7AF20 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +109,12 @@
 			children = (
 				4C956ABD281C262D00A7AF20 /* AppDelegate.swift */,
 				4C956ABF281C262D00A7AF20 /* SceneDelegate.swift */,
-				4C956AC1281C262D00A7AF20 /* ViewController.swift */,
-				4C956AC3281C262D00A7AF20 /* Main.storyboard */,
+				4C956AC1281C262D00A7AF20 /* CSVHomeVC.swift */,
+				4C956AED281C267C00A7AF20 /* UserTableViewCell.swift */,
+				4C956AEF281C269400A7AF20 /* CSVHomeViewModel.swift */,
+				4C956AF3281C286200A7AF20 /* CSVReadUtil.swift */,
+				4C956AF5281C287A00A7AF20 /* Extensions.swift */,
+				4C956AF1281C284600A7AF20 /* Constants.swift */,
 				4C956AC6281C262F00A7AF20 /* Assets.xcassets */,
 				4C956AC8281C262F00A7AF20 /* LaunchScreen.storyboard */,
 				4C956ACB281C262F00A7AF20 /* Info.plist */,
@@ -233,7 +245,6 @@
 			files = (
 				4C956ACA281C262F00A7AF20 /* LaunchScreen.storyboard in Resources */,
 				4C956AC7281C262F00A7AF20 /* Assets.xcassets in Resources */,
-				4C956AC5281C262D00A7AF20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +269,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C956AC2281C262D00A7AF20 /* ViewController.swift in Sources */,
+				4C956AEE281C267C00A7AF20 /* UserTableViewCell.swift in Sources */,
+				4C956AF0281C269400A7AF20 /* CSVHomeViewModel.swift in Sources */,
+				4C956AC2281C262D00A7AF20 /* CSVHomeVC.swift in Sources */,
+				4C956AF6281C287A00A7AF20 /* Extensions.swift in Sources */,
 				4C956ABE281C262D00A7AF20 /* AppDelegate.swift in Sources */,
 				4C956AC0281C262D00A7AF20 /* SceneDelegate.swift in Sources */,
+				4C956AF4281C286200A7AF20 /* CSVReadUtil.swift in Sources */,
+				4C956AF2281C284600A7AF20 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +313,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4C956AC3281C262D00A7AF20 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4C956AC4281C262D00A7AF20 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4C956AC8281C262F00A7AF20 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -444,7 +452,6 @@
 				INFOPLIST_FILE = CSVWithDI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -472,7 +479,6 @@
 				INFOPLIST_FILE = CSVWithDI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
