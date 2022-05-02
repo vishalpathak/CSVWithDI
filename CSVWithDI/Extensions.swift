@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+extension String {
+    func getStringDataFromUrl(stringURL: URL?) -> String? {
+        if let url = stringURL {
+            do {
+                return try String(contentsOf: url, encoding: .utf8)
+            } catch {
+                return nil
+            }
+        } else {
+            return nil
+        }
+    }
+}

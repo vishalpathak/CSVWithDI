@@ -9,13 +9,27 @@ import XCTest
 @testable import CSVWithDI
 
 class CSVWithDITests: XCTestCase {
+    
+    var sut: CSVHomeViewModel!
+    var csvDataUtil: MockCSVHomeViweModel!
+    var output: MockOutputCSV!
+    
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        output = MockOutputCSV()
+        csvDataUtil = MockCSVHomeViweModel()
+        sut = CSVHomeViewModel(csvHomeViewModelUtil: csvDataUtil)
+        sut.outputData = output
+        try super.setUpWithError()
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        csvDataUtil = nil
+        output = nil
+        try super.tearDownWithError()
     }
 
     func testExample() throws {
@@ -33,4 +47,39 @@ class CSVWithDITests: XCTestCase {
         }
     }
 
+    func testCSVHomeViewModel() {
+        let _ = csvDataUtil.getAllValues(stringData: "")
+        sut.getDataFromCSV()
+        XCTAssertEqual(output.mockVMArray?.count, 1)
+    }
+    
+    func testCSVUserData() {
+        let obj = csvDataUtil.getAllValues(stringData: "")
+        //let objVM = UserDataViewModel(data: obj![0])
+        sut.getDataFromCSV()
+        let outputObj = csvDataUtil.
+        XCTAssertEqual(sut.outputData, output.mockVMArray![0].issueCount)
+        
+    }
+}
+
+class MockCSVHomeViweModel: GetCSVHomeViewModel {
+    
+    func getAllValues(stringData: String) -> [UserModel]? {
+        let obj = UserModel(dob: "21st Jan", firstName: "John", lastName: "depp", issueCount: 2)
+        let objVM = [UserDataViewModel(data: obj)]
+        let bb = CSVWithDITests()
+        bb.output.receivedOutputData(userDataViewModel: objVM, error: nil)
+        return [obj]
+    }
+    
+}
+
+class MockOutputCSV: OutputDataForCSV {
+    
+    var mockVMArray: [UserDataViewModel]?
+    
+    func receivedOutputData(userDataViewModel: [UserDataViewModel]?, error: Error?) {
+        mockVMArray = userDataViewModel
+    }
 }

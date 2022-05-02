@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C8CE5F0282024D700018966 /* issues.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4C8CE5EF282024D700018966 /* issues.csv */; };
 		4C956ABE281C262D00A7AF20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956ABD281C262D00A7AF20 /* AppDelegate.swift */; };
 		4C956AC0281C262D00A7AF20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956ABF281C262D00A7AF20 /* SceneDelegate.swift */; };
 		4C956AC2281C262D00A7AF20 /* CSVHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956AC1281C262D00A7AF20 /* CSVHomeVC.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C8CE5EF282024D700018966 /* issues.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = issues.csv; sourceTree = "<group>"; };
 		4C956ABA281C262D00A7AF20 /* CSVWithDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSVWithDI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C956ABD281C262D00A7AF20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C956ABF281C262D00A7AF20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				4C956AC6281C262F00A7AF20 /* Assets.xcassets */,
 				4C956AC8281C262F00A7AF20 /* LaunchScreen.storyboard */,
 				4C956ACB281C262F00A7AF20 /* Info.plist */,
+				4C8CE5EF282024D700018966 /* issues.csv */,
 			);
 			path = CSVWithDI;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C8CE5F0282024D700018966 /* issues.csv in Resources */,
 				4C956ACA281C262F00A7AF20 /* LaunchScreen.storyboard in Resources */,
 				4C956AC7281C262F00A7AF20 /* Assets.xcassets in Resources */,
 			);

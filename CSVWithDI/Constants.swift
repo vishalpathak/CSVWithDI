@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+let emptyString = ""
+let defaultZeroValue = 0
+
+enum Delimiter: String {
+    case comma = ","
+    case pipe = "|"
+}
+
+enum FileExtesions: String {
+    case csv = "csv"
+    case json = "json"
+}

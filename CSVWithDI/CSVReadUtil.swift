@@ -31,16 +31,3 @@ extension CSVReadUtil {
     }
     
 }
-
-protocol CSVHomeViewModelUtil: CSVReadUtil {
-    func getAllValues(stringData: String) -> [UserModel]?
-}
-
-class CSVHomeDataReadUtil: CSVHomeViewModelUtil {
-    
-    func getAllValues(stringData: String) -> [UserModel]? {
-        
-      return [UserModel]()
-    }
-    
-}
