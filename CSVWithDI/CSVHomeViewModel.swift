@@ -20,9 +20,9 @@ struct UserDataViewModel {
     let issueCount: String?
     
     init(data: UserModel) {
-        self.fullName = "\(data.firstName!) \(data.lastName!)"
-        self.dob = "\(data.dob!)"
-        self.issueCount = "\(data.issueCount!)"
+        self.fullName = "\(data.firstName ?? "NA") \(data.lastName ?? "NA")"
+        self.dob = data.dob?.convertDateFormat(strDT: data.dob, givenFormat: "yyyy-MM-dd'T'HH:mm:ss", expectedFormat: "dd MMM yyyy")
+        self.issueCount = "\(data.issueCount ?? 0)"
     }
 }
 
@@ -40,7 +40,7 @@ class CSVHomeDataReadUtil: GetCSVHomeViewModel {
         var userArray = [UserModel]()
         let rows = getAllRows(stringData: stringData)
         guard let rowsData = rows.first else {
-            completion(.failure(NSError()))
+            completion(.failure(NSError(domain: "Error in Data", code: 10, userInfo: nil)))
             return
         }
         let columnTitles = getAllFields(oldFromString: rowsData)
@@ -52,7 +52,8 @@ class CSVHomeDataReadUtil: GetCSVHomeViewModel {
                     let ct = Int(obj[2]) ?? 0
                     let firstName = obj[0]
                     let lastName = obj[1]
-                    let objCSV = UserModel(dob: emptyString, firstName: firstName, lastName: lastName, issueCount: ct)
+                    let dob = obj[3]
+                    let objCSV = UserModel(dob: dob, firstName: firstName, lastName: lastName, issueCount: ct)
                     userArray.append(objCSV)
                 }
             }
@@ -84,22 +85,22 @@ class CSVHomeViewModel {
         csvHomeViewModelUtil.getAllValuesForCSV(stringData: stringData) { [weak self] res in
             switch res {
             case .success(let userModel):
-                let userVM = mapUserDataToViewModel(userModel: userModel)
+                let userVM = self?.mapUserDataToViewModel(userModel: userModel)
                 self?.outputData?.receivedOutputData(userDataViewModel: userVM, error: nil)
             case .failure(let error):
                 self?.outputData?.receivedOutputData(userDataViewModel: nil, error: error)
             }
         }
-        
-        func mapUserDataToViewModel(userModel: [UserModel]?) -> [UserDataViewModel]? {
-            if let userModel = userModel {
-                let modelArray = userModel.map { (obj: UserModel) -> UserDataViewModel in
-                    return UserDataViewModel(data: obj)
-                }
-                return modelArray
-            } else {
-                return nil
+    }
+    
+    func mapUserDataToViewModel(userModel: [UserModel]?) -> [UserDataViewModel]? {
+        if let userModel = userModel {
+            let modelArray = userModel.map { (obj: UserModel) -> UserDataViewModel in
+                return UserDataViewModel(data: obj)
             }
+            return modelArray
+        } else {
+            return nil
         }
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 
 extension String {
+    
     func getStringDataFromUrl(stringURL: URL?) -> String? {
         if let url = stringURL {
             do {
@@ -19,4 +20,14 @@ extension String {
             return nil
         }
     }
+    
+    func convertDateFormat(strDT: String?, givenFormat: String, expectedFormat: String) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = givenFormat
+        guard let dt = strDT else { return nil}
+        guard let date = dateFormatter.date(from: dt) else { return nil }
+        dateFormatter.dateFormat = expectedFormat
+        return  dateFormatter.string(from: date)
+    }
+    
 }
