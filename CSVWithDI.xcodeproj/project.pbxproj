@@ -21,6 +21,7 @@
 		4C956AF2281C284600A7AF20 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956AF1281C284600A7AF20 /* Constants.swift */; };
 		4C956AF4281C286200A7AF20 /* CSVReadUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956AF3281C286200A7AF20 /* CSVReadUtil.swift */; };
 		4C956AF6281C287A00A7AF20 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C956AF5281C287A00A7AF20 /* Extensions.swift */; };
+		4CB942BD28215BC2003987C6 /* CSVHomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB942BC28215BC2003987C6 /* CSVHomeViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		4C956AF1281C284600A7AF20 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4C956AF3281C286200A7AF20 /* CSVReadUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVReadUtil.swift; sourceTree = "<group>"; };
 		4C956AF5281C287A00A7AF20 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4CB942BC28215BC2003987C6 /* CSVHomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVHomeViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				4C956AD4281C262F00A7AF20 /* CSVWithDITests.swift */,
+				4CB942BC28215BC2003987C6 /* CSVHomeViewModelTests.swift */,
 			);
 			path = CSVWithDITests;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CB942BD28215BC2003987C6 /* CSVHomeViewModelTests.swift in Sources */,
 				4C956AD5281C262F00A7AF20 /* CSVWithDITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
