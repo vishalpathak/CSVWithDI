@@ -104,3 +104,11 @@ class CSVHomeViewModel {
         }
     }
 }
+
+#if DEBUG
+extension CSVHomeViewModel {
+    var _baseUrlPath: URL {
+        baseUrlPath!
+    }
+}
+#endif

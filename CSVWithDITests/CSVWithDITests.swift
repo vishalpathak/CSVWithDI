@@ -12,32 +12,21 @@ class CSVWithDITests: XCTestCase {
     
     var sut: CSVHomeViewModel!
     var csvDataUtil: MockCSVHomeViweModel!
-    var output: MockOutputCSV!
     
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        output = MockOutputCSV()
         csvDataUtil = MockCSVHomeViweModel()
         sut = CSVHomeViewModel(csvHomeViewModelUtil: csvDataUtil)
-        sut.outputData = output
+        
         try super.setUpWithError()
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        sut = nil
         csvDataUtil = nil
-        output = nil
+        sut = nil
         try super.tearDownWithError()
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
     }
 
     func testPerformanceExample() throws {
@@ -46,11 +35,24 @@ class CSVWithDITests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
-    func testCSVHomeViewModel() {
-        let _ = csvDataUtil.getAllValues(stringData: "")
-        sut.getDataFromCSV()
-        XCTAssertEqual(output.mockVMArray?.count, 1)
+    
+    func testStringData() {
+        let strData = emptyString.getStringDataFromUrl(stringURL: sut._baseUrlPath)
+        XCTAssertNotNil(strData)
+    }
+    
+    func testConvertDateFormatter() {
+        let expectedDate = "02 Jan 1978"
+        let givenDateStr = emptyString.convertDateFormat(strDT: "1978-01-02T00:00:00", givenFormat: "yyyy-MM-dd'T'HH:mm:ss", expectedFormat: "dd MMM yyyy")
+        XCTAssertEqual(givenDateStr, expectedDate)
+    }
+    
+    func testModelMapping() {
+        let objCsv1 = UserModel(dob: "2001-04-20T00:00:00", firstName: "john", lastName: "john", issueCount: 4)
+        let objCsv2 = UserModel(dob: "1950-11-12T00:00:00", firstName: "Fiona", lastName: "de Vries", issueCount: 7)
+        let csvModel = [objCsv1, objCsv2]
+        let csvViewModel = sut.mapUserDataToViewModel(userModel: csvModel)
+        XCTAssertNotNil(csvViewModel)
     }
     
     func testCSVUserData() {
@@ -64,27 +66,27 @@ class CSVWithDITests: XCTestCase {
 }
 
 class MockCSVHomeViweModel: GetCSVHomeViewModel {
-    
-    func getAllValuesForCSV(stringData: String, completion: @escaping (Result<[UserModel], Error>) -> Void) {
-        
-    }
-    
-    
-    func getAllValues(stringData: String) -> [UserModel]? {
-        let obj = UserModel(dob: "21st Jan", firstName: "John", lastName: "depp", issueCount: 2)
-        let objVM = [UserDataViewModel(data: obj)]
-        let bb = CSVWithDITests()
-        bb.output.receivedOutputData(userDataViewModel: objVM, error: nil)
-        return [obj]
-    }
-    
-}
 
-class MockOutputCSV: OutputDataForCSV {
-    
-    var mockVMArray: [UserDataViewModel]?
-    
-    func receivedOutputData(userDataViewModel: [UserDataViewModel]?, error: Error?) {
-        mockVMArray = userDataViewModel
+    func getAllValuesForCSV(stringData: String, completion: @escaping (Result<[UserModel], Error>) -> Void) {
+
     }
+
+
+//    func getAllValues(stringData: String) -> [UserModel]? {
+//        let obj = UserModel(dob: "21st Jan", firstName: "John", lastName: "depp", issueCount: 2)
+//        let objVM = [UserDataViewModel(data: obj)]
+//        let bb = CSVWithDITests()
+//        bb.output.receivedOutputData(userDataViewModel: objVM, error: nil)
+//        return [obj]
+//    }
+
 }
+//
+//class MockOutputCSV: OutputDataForCSV {
+//
+//    var mockVMArray: [UserDataViewModel]?
+//
+//    func receivedOutputData(userDataViewModel: [UserDataViewModel]?, error: Error?) {
+//        mockVMArray = userDataViewModel
+//    }
+//}
